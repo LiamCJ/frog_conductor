@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0vx7g7jys4d3"]
+
+[ext_resource type="Texture2D" uid="uid://bk3egg4ekgxj" path="res://assets/sprites/tram.png" id="1_bymtm"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wyik4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_bymtm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Tram" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -32)
+sprite_frames = SubResource("SpriteFrames_wyik4")
+frame_progress = 0.599462
