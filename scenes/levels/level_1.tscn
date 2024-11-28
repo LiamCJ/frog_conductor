@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://d0yb3870nx7cc"]
+[gd_scene load_steps=11 format=3 uid="uid://d0yb3870nx7cc"]
 
-[ext_resource type="Script" path="res://scenes/levels/level_1.gd" id="1_1kcxk"]
+[ext_resource type="Script" path="res://Scripts/level_1.gd" id="1_15mu0"]
 [ext_resource type="Texture2D" uid="uid://cecpt3w7fnlxs" path="res://assets/bg/world_tiles.png" id="2_5uqfy"]
+[ext_resource type="Texture2D" uid="uid://b6fl6vbrq5pg7" path="res://assets/sprites/ugame_coopy.png" id="3_iwlc1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_avit0"]
 texture = ExtResource("2_5uqfy")
@@ -291,8 +292,9 @@ _data = {
 }
 point_count = 3
 
-[node name="Level1" type="Node2D"]
-script = ExtResource("1_1kcxk")
+[node name="Level1" type="Node2D" node_paths=PackedStringArray("rail_network")]
+script = ExtResource("1_15mu0")
+rail_network = NodePath("RailNetwork")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_yjox8")
@@ -338,3 +340,9 @@ curve = SubResource("Curve2D_xb8rt")
 [node name="PathFollow2D" type="PathFollow2D" parent="RailNetwork/Path2D2"]
 position = Vector2(448, 88)
 rotation = 0.463648
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(16, -56)
+texture = ExtResource("3_iwlc1")
+region_enabled = true
+region_rect = Rect2(238.597, 88.1568, 20.324, 23.3816)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://b0vx7g7jys4d3"]
+[gd_scene load_steps=4 format=3 uid="uid://b0vx7g7jys4d3"]
 
 [ext_resource type="Texture2D" uid="uid://bk3egg4ekgxj" path="res://assets/sprites/tram.png" id="1_bymtm"]
 
@@ -13,9 +13,16 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Tram" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_siyof"]
+size = Vector2(58, 34)
+
+[node name="Tram" type="Area2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -32)
 sprite_frames = SubResource("SpriteFrames_wyik4")
 frame_progress = 0.599462
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -18)
+shape = SubResource("RectangleShape2D_siyof")

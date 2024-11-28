@@ -15,7 +15,7 @@ var follower:PathFollow2D
 
 func init_network()-> void:
 	#meta data stored as nodepaths not nodes
-	var rail_network: = level.get_node("RailNetwork")
+	var rail_network:Node2D = level.rail_network
 	#set current rail to the starting rail of the level(rail network)
 	curr_rail_idx = rail_network.get_meta('start_rail')
 	curr_node_idx = rail_network.get_meta('start_node')
