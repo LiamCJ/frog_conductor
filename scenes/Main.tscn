@@ -1,12 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://cs7o3vfaxi0oy"]
+[gd_scene load_steps=8 format=3 uid="uid://cs7o3vfaxi0oy"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_ofw73"]
+[ext_resource type="PackedScene" uid="uid://dfml4o541lh7f" path="res://scenes/levels/level_2.tscn" id="2_4nupm"]
 [ext_resource type="Script" path="res://scenes/TramController.gd" id="2_ivblk"]
 [ext_resource type="PackedScene" uid="uid://d0yb3870nx7cc" path="res://scenes/levels/level_1.tscn" id="2_uh4ug"]
 [ext_resource type="PackedScene" uid="uid://b0vx7g7jys4d3" path="res://scenes/Players/tram.tscn" id="3_2v853"]
+[ext_resource type="PackedScene" uid="uid://cbqwqai20s21g" path="res://scenes/Players/animal_test.tscn" id="3_40qu8"]
+[ext_resource type="PackedScene" uid="uid://lyc588ij5c30" path="res://scenes/world elements/coin.tscn" id="4_spmja"]
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" node_paths=PackedStringArray("level")]
 script = ExtResource("1_ofw73")
+level = NodePath("Level1")
+next_level = ExtResource("2_4nupm")
+animal = ExtResource("3_40qu8")
+Coin = ExtResource("4_spmja")
 
 [node name="TramController" type="Node" parent="." node_paths=PackedStringArray("tram", "level")]
 script = ExtResource("2_ivblk")
@@ -19,3 +26,6 @@ level = NodePath("../Level1")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(182, 13)
+zoom = Vector2(2, 2)
+
+[connection signal="track_ended" from="TramController" to="." method="load_next_level" flags=3]
