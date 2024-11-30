@@ -1,9 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://r6lbavp10h8x"]
+[gd_scene load_steps=2 format=3 uid="uid://dlr66r74gbhpc"]
 
-[ext_resource type="Script" path="res://Scripts/AnimalSpawns.gd" id="1_xywa6"]
+[ext_resource type="Script" path="res://scripts/AnimalSpawns.gd" id="1_mfbkx"]
 
 [node name="AnimalSpawns" type="Node" node_paths=PackedStringArray("top_path", "bottom_path")]
-script = ExtResource("1_xywa6")
+script = ExtResource("1_mfbkx")
 top_path = [NodePath("top1"), NodePath("top2"), NodePath("top3"), NodePath("top4"), NodePath("top5")]
 bottom_path = [NodePath("bot1"), NodePath("bot2"), NodePath("bot3"), NodePath("bot4"), NodePath("bot5")]
 

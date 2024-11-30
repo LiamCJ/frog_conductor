@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cbqwqai20s21g"]
 
-[ext_resource type="Texture2D" uid="uid://b6fl6vbrq5pg7" path="res://assets/sprites/ugame_coopy.png" id="1_us5b1"]
+[ext_resource type="Texture2D" uid="uid://b6fl6vbrq5pg7" path="res://assets/sprites/ugame_coopy.png" id="1_mk0hg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wkqy3"]
 
@@ -11,6 +11,6 @@ shape = SubResource("RectangleShape2D_wkqy3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.941176, 0.869716)
-texture = ExtResource("1_us5b1")
+texture = ExtResource("1_mk0hg")
 region_enabled = true
 region_rect = Rect2(240, 90, 17, 21)
