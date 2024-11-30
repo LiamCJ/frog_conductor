@@ -1,18 +1,27 @@
-[gd_scene load_steps=8 format=3 uid="uid://cs7o3vfaxi0oy"]
+[gd_scene load_steps=11 format=3 uid="uid://cs7o3vfaxi0oy"]
 
 [ext_resource type="Script" path="res://scripts/Main.gd" id="1_ofw73"]
 [ext_resource type="PackedScene" uid="uid://dfml4o541lh7f" path="res://scenes/levels/level_2.tscn" id="2_4nupm"]
 [ext_resource type="Script" path="res://scripts/TramController.gd" id="2_ivblk"]
 [ext_resource type="PackedScene" uid="uid://d0yb3870nx7cc" path="res://scenes/levels/level_1.tscn" id="2_uh4ug"]
 [ext_resource type="PackedScene" uid="uid://b0vx7g7jys4d3" path="res://scenes/characters/tram.tscn" id="3_2v853"]
-[ext_resource type="PackedScene" uid="uid://cbqwqai20s21g" path="res://scenes/characters/animal_test.tscn" id="3_40qu8"]
+[ext_resource type="PackedScene" uid="uid://sihn7yioq3k2" path="res://scenes/characters/rabbit.tscn" id="3_ipnub"]
+[ext_resource type="PackedScene" uid="uid://chop6itr1y3lb" path="res://scenes/characters/tortoise.tscn" id="4_q77nf"]
 [ext_resource type="PackedScene" uid="uid://lyc588ij5c30" path="res://scenes/environment_objects/coin.tscn" id="4_spmja"]
+
+[sub_resource type="Animation" id="Animation_qhtcp"]
+resource_name = "animal_walk"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a4arf"]
+_data = {
+"animal_walk": SubResource("Animation_qhtcp")
+}
 
 [node name="Main" type="Node2D" node_paths=PackedStringArray("level")]
 script = ExtResource("1_ofw73")
 level = NodePath("Level1")
 next_level = ExtResource("2_4nupm")
-animal = ExtResource("3_40qu8")
+animals = Array[PackedScene]([ExtResource("3_ipnub"), ExtResource("4_q77nf")])
 Coin = ExtResource("4_spmja")
 
 [node name="TramController" type="Node" parent="." node_paths=PackedStringArray("tram", "level")]
@@ -28,4 +37,10 @@ level = NodePath("../Level1")
 position = Vector2(182, 13)
 zoom = Vector2(2, 2)
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_a4arf")
+}
+
 [connection signal="track_ended" from="TramController" to="." method="load_next_level" flags=3]
+[connection signal="area_entered" from="TramController/Tram" to="." method="on_animal_hit"]
