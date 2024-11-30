@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://sihn7yioq3k2"]
+
+[ext_resource type="PackedScene" uid="uid://dg34mi43nhptx" path="res://scenes/characters/animal.tscn" id="1_gip1x"]
+[ext_resource type="Texture2D" uid="uid://ijy5lvy1f1gn" path="res://assets/sprites/raodkill.png" id="2_7l8tx"]
+[ext_resource type="Texture2D" uid="uid://d2p23oxgvf3ac" path="res://assets/sprites/rabbit.png" id="2_ep0lv"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ptkl8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_7l8tx")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ep0lv")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1xugh"]
+size = Vector2(10, 32)
+
+[node name="Rabbit" instance=ExtResource("1_gip1x")]
+morality_on_kill = -3
+morality_on_save = 2
+speed_modifier = 20
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_ptkl8")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_1xugh")

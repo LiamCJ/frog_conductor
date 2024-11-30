@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://chop6itr1y3lb"]
+
+[ext_resource type="PackedScene" uid="uid://dg34mi43nhptx" path="res://scenes/characters/animal.tscn" id="1_13e1x"]
+[ext_resource type="Texture2D" uid="uid://b18l32h4rrtu7" path="res://assets/sprites/tortoise.png" id="2_4ydwe"]
+[ext_resource type="Texture2D" uid="uid://ijy5lvy1f1gn" path="res://assets/sprites/raodkill.png" id="2_orgja"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s2vrr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_orgja")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_4ydwe")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n6lvc"]
+size = Vector2(16, 32)
+
+[node name="Tortoise" instance=ExtResource("1_13e1x")]
+speed_modifier = -20
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_s2vrr")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_n6lvc")

@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://dg34mi43nhptx"]
+
+[ext_resource type="Script" path="res://Scripts/animal.gd" id="1_jdxmn"]
+[ext_resource type="Texture2D" uid="uid://ijy5lvy1f1gn" path="res://assets/sprites/raodkill.png" id="2_nmli2"]
+[ext_resource type="PackedScene" uid="uid://lyc588ij5c30" path="res://scenes/environment_objects/coin.tscn" id="3_a5cyh"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ifhy7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_nmli2")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}]
+
+[node name="Animal" type="Area2D"]
+script = ExtResource("1_jdxmn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -8)
+sprite_frames = SubResource("SpriteFrames_ifhy7")
+animation = &"dead"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="Coin" parent="." instance=ExtResource("3_a5cyh")]
+position = Vector2(0, 15)
