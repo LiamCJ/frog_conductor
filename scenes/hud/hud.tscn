@@ -1,0 +1,124 @@
+[gd_scene load_steps=6 format=3 uid="uid://gdwbp7w0ykhb"]
+
+[ext_resource type="Script" path="res://scripts/hud.gd" id="1_8vogk"]
+[ext_resource type="Texture2D" uid="uid://djjev8axjb52h" path="res://assets/sprites/hud/acorn.png" id="1_ohgu0"]
+[ext_resource type="Texture2D" uid="uid://nf0en0pbij5j" path="res://assets/sprites/hud/morale_meter.png" id="2_ik5cd"]
+[ext_resource type="Texture2D" uid="uid://ttqi3w0upp6y" path="res://assets/sprites/hud/morale_reed.png" id="3_kmc37"]
+[ext_resource type="FontFile" uid="uid://b8mclly4vhrwl" path="res://assets/fonts/PixelOperator8.ttf" id="4_ewpdr"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_8vogk")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 140.0
+offset_top = 51.0
+offset_right = 302.0
+offset_bottom = 117.0
+
+[node name="meter" type="Control" parent="Control"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+grow_vertical = 2
+scale = Vector2(1.96, 1.96)
+
+[node name="lily_pad" type="Sprite2D" parent="Control/meter"]
+texture = ExtResource("2_ik5cd")
+
+[node name="reed" type="Sprite2D" parent="Control/meter"]
+position = Vector2(-2.04082, -11.7347)
+texture = ExtResource("3_kmc37")
+offset = Vector2(0, 14.2857)
+
+[node name="currency" type="Control" parent="Control"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(0.839995, 0.839995)
+
+[node name="acorn" type="Sprite2D" parent="Control/currency"]
+position = Vector2(34, 0)
+scale = Vector2(3.875, 3.45199)
+texture = ExtResource("1_ohgu0")
+
+[node name="score" type="Label" parent="Control/currency/acorn"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.129
+offset_top = -23.3412
+offset_right = 5.87096
+offset_bottom = -0.341249
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.482324, 0.482324)
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.07, 0.0326667, 0, 1)
+theme_override_fonts/font = ExtResource("4_ewpdr")
+theme_override_font_sizes/font_size = 16
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+justification_flags = 162
+
+[node name="EndControl" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameOver" type="Label" parent="EndControl"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_ewpdr")
+theme_override_font_sizes/font_size = 64
+text = "GAME FINISHED"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FinalScore" type="Label" parent="EndControl"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -86.0
+offset_top = 63.0
+offset_right = 86.0
+offset_bottom = 95.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_ewpdr")
+theme_override_font_sizes/font_size = 32
+text = "Score:"
+horizontal_alignment = 1
+vertical_alignment = 1

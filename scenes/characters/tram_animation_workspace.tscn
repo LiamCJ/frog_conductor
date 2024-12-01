@@ -1,0 +1,443 @@
+[gd_scene load_steps=37 format=3 uid="uid://batu23mj2p656"]
+
+[ext_resource type="Texture2D" uid="uid://dtw65can3q55h" path="res://assets/bg/rails.png" id="1_e2by3"]
+[ext_resource type="Texture2D" uid="uid://bw6a8nj0o0ywm" path="res://assets/sprites/tram/tram_down.png" id="2_76gvu"]
+[ext_resource type="Texture2D" uid="uid://d03k7jounig7p" path="res://assets/sprites/tram/tram_straight_Sheet.png" id="3_hg82c"]
+[ext_resource type="Texture2D" uid="uid://bvc8r52ri5d14" path="res://assets/sprites/tram/tram_up.png" id="4_ivmr0"]
+[ext_resource type="Texture2D" uid="uid://dw5djxta8vm1u" path="res://assets/sprites/tram/tram_half_up.png" id="5_073jd"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o31ht"]
+texture = ExtResource("1_e2by3")
+9:0/0 = 0
+10:0/0 = 0
+13:0/0 = 0
+14:0/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+10:1/0 = 0
+11:1/0 = 0
+12:1/0 = 0
+13:1/0 = 0
+14:1/0 = 0
+15:1/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+10:2/0 = 0
+11:2/0 = 0
+12:2/0 = 0
+13:2/0 = 0
+14:2/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+10:3/0 = 0
+11:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+9:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+8:6/0 = 0
+9:6/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+8:7/0 = 0
+9:7/0 = 0
+10:7/0 = 0
+11:7/0 = 0
+7:8/0 = 0
+8:8/0 = 0
+9:8/0 = 0
+10:8/0 = 0
+11:8/0 = 0
+12:8/0 = 0
+13:8/0 = 0
+14:8/0 = 0
+7:9/0 = 0
+8:9/0 = 0
+9:9/0 = 0
+10:9/0 = 0
+11:9/0 = 0
+12:9/0 = 0
+13:9/0 = 0
+14:9/0 = 0
+15:9/0 = 0
+9:10/0 = 0
+10:10/0 = 0
+13:10/0 = 0
+14:10/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_1lwtn"]
+sources/0 = SubResource("TileSetAtlasSource_o31ht")
+
+[sub_resource type="Curve2D" id="Curve2D_wcv5g"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -112, 8, 0, 0, 0, 0, 48, 8)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_clo3v"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 56, 8, 0, 0, 0, 0, 216, -72, 0, 0, 0, 0, 368, -72)
+}
+point_count = 3
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fnstl"]
+texture = ExtResource("1_e2by3")
+9:0/0 = 0
+10:0/0 = 0
+13:0/0 = 0
+14:0/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+10:1/0 = 0
+11:1/0 = 0
+12:1/0 = 0
+13:1/0 = 0
+14:1/0 = 0
+15:1/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+10:2/0 = 0
+11:2/0 = 0
+12:2/0 = 0
+13:2/0 = 0
+14:2/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+10:3/0 = 0
+11:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+9:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+8:6/0 = 0
+9:6/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+8:7/0 = 0
+9:7/0 = 0
+10:7/0 = 0
+11:7/0 = 0
+7:8/0 = 0
+8:8/0 = 0
+9:8/0 = 0
+10:8/0 = 0
+11:8/0 = 0
+12:8/0 = 0
+13:8/0 = 0
+14:8/0 = 0
+7:9/0 = 0
+8:9/0 = 0
+9:9/0 = 0
+10:9/0 = 0
+11:9/0 = 0
+12:9/0 = 0
+13:9/0 = 0
+14:9/0 = 0
+15:9/0 = 0
+9:10/0 = 0
+10:10/0 = 0
+13:10/0 = 0
+14:10/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_k6y7b"]
+sources/0 = SubResource("TileSetAtlasSource_fnstl")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xpacb"]
+atlas = ExtResource("2_76gvu")
+region = Rect2(0, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q8bmd"]
+atlas = ExtResource("2_76gvu")
+region = Rect2(80, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kcbs5"]
+atlas = ExtResource("2_76gvu")
+region = Rect2(160, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjdxd"]
+atlas = ExtResource("2_76gvu")
+region = Rect2(240, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dkpfq"]
+atlas = ExtResource("3_hg82c")
+region = Rect2(0, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ni0nb"]
+atlas = ExtResource("3_hg82c")
+region = Rect2(80, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0qyq0"]
+atlas = ExtResource("3_hg82c")
+region = Rect2(160, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pwwbk"]
+atlas = ExtResource("3_hg82c")
+region = Rect2(240, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_csqab"]
+atlas = ExtResource("4_ivmr0")
+region = Rect2(0, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wyokc"]
+atlas = ExtResource("4_ivmr0")
+region = Rect2(80, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fvxut"]
+atlas = ExtResource("4_ivmr0")
+region = Rect2(160, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ccxu7"]
+atlas = ExtResource("4_ivmr0")
+region = Rect2(240, 0, 80, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wyik4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xpacb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q8bmd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kcbs5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fjdxd")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dkpfq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ni0nb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0qyq0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pwwbk")
+}],
+"loop": true,
+"name": &"straight",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_csqab")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wyokc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fvxut")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ccxu7")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_siyof"]
+size = Vector2(59, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_im5aw"]
+atlas = ExtResource("4_ivmr0")
+region = Rect2(0, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eampf"]
+atlas = ExtResource("4_ivmr0")
+region = Rect2(80, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ufm2u"]
+atlas = ExtResource("4_ivmr0")
+region = Rect2(160, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_if374"]
+atlas = ExtResource("4_ivmr0")
+region = Rect2(240, 0, 80, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ywxa4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_im5aw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eampf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ufm2u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_if374")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kuqvs"]
+atlas = ExtResource("5_073jd")
+region = Rect2(0, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ysyro"]
+atlas = ExtResource("5_073jd")
+region = Rect2(80, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5bblx"]
+atlas = ExtResource("5_073jd")
+region = Rect2(160, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ji4vi"]
+atlas = ExtResource("5_073jd")
+region = Rect2(240, 0, 80, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jk8v3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kuqvs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ysyro")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5bblx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ji4vi")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Curve2D" id="Curve2D_tr7m2"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 48, 8, 0, 0, 0, 0, 208, 88, 0, 0, 0, 0, 400, 88)
+}
+point_count = 3
+
+[node name="tram_animation_workspace" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_1lwtn")
+format = 2
+layer_0/tile_data = PackedInt32Array(-2, 0, 4, 65534, 0, 5, 131070, 0, 6, -1, 65536, 4, 65535, 65536, 5, 131071, 65536, 6, -65536, 131072, 4, 0, 131072, 5, 65536, 131072, 6, -65535, 196608, 4, 1, 196608, 5, 65537, 196608, 6, -65534, 262144, 4, 2, 262144, 5, 65538, 262144, 6, -65533, 327680, 4, 3, 327680, 5, 65539, 327680, 6, -65532, 393216, 4, 4, 393216, 5, 65540, 393216, 6, -5, 131072, 4, 65531, 131072, 5, 131067, 131072, 6, -4, 65536, 4, 65532, 65536, 5, 131068, 65536, 6, -3, 131072, 4, 65533, 131072, 5, 131069, 131072, 6, -7, 0, 4, 65529, 0, 5, 131065, 0, 6, -6, 65536, 4, 65530, 65536, 5, 131066, 65536, 6, -196603, 458752, 2, -131067, 458752, 3, -65531, 458752, 4, -196602, 524288, 2, -131066, 524288, 3, -65530, 524288, 4, -196601, 589824, 2, -131065, 589824, 3, -65529, 589824, 4, -196600, 655360, 2, -131064, 655360, 3, -131068, 393216, 3, 131076, 393216, 7, 65541, 458752, 6, 131077, 458752, 7, 196613, 458752, 8, 65542, 524288, 6, 131078, 393216, 6, 196614, 393216, 7, 131079, 458752, 6, 196615, 458752, 7, 262151, 458752, 8, 131080, 524288, 6, 196616, 393216, 6, 262152, 393216, 7, 196617, 458752, 6, 262153, 458752, 7, 327689, 458752, 8, 196618, 524288, 6, 262154, 393216, 6, 327690, 393216, 7, 262155, 720896, 8, 327691, 720896, 9, 393227, 458752, 8, 262156, 786432, 8, 327692, 786432, 9, 393228, 524288, 8, -327671, 458752, 2, -262135, 458752, 3, -196599, 458752, 4, -327670, 524288, 2, -262134, 524288, 3, -196598, 524288, 4, -327669, 720896, 1, -262133, 720896, 2, -196597, 589824, 4, -327668, 786432, 1, -262132, 786432, 2, -393203, 851968, 0, -327667, 851968, 1, -262131, 851968, 2, -393202, 0, 4, -327666, 0, 5, -262130, 0, 6, 196619, 720896, 7, 262157, 851968, 8, 327693, 851968, 9, 393229, 851968, 10, 262158, 0, 4, 327694, 0, 5, 393230, 0, 6, -393201, 65536, 4, -327665, 65536, 5, -262129, 65536, 6, -393200, 0, 4, -327664, 0, 5, -262128, 0, 6, 262159, 65536, 4, 327695, 65536, 5, 393231, 65536, 6, 262160, 131072, 4, 327696, 131072, 5, 393232, 131072, 6, 262161, 0, 4, 327697, 0, 5, 393233, 0, 6, 262162, 65536, 4, 327698, 65536, 5, 393234, 65536, 6, 262163, 0, 4, 327699, 0, 5, 393235, 0, 6, -393199, 0, 4, -327663, 0, 5, -262127, 0, 6, -393198, 65536, 4, -327662, 65536, 5, -262126, 65536, 6, -393197, 131072, 4, -327661, 131072, 5, -262125, 131072, 6, -393196, 0, 4, -327660, 0, 5, -262124, 0, 6, -393195, 65536, 4, -327659, 65536, 5, -262123, 65536, 6, -393194, 131072, 4, -327658, 131072, 5, -262122, 131072, 6, 262164, 65536, 4, 327700, 65536, 5, 393236, 65536, 6, 262165, 131072, 4, 327701, 131072, 5, 393237, 131072, 6, 262166, 0, 4, 327702, 0, 5, 393238, 0, 6, 262167, 65536, 4, 327703, 65536, 5, 393239, 65536, 6, 262168, 131072, 4, 327704, 131072, 5, 393240, 131072, 6)
+
+[node name="paths" type="Node" parent="."]
+
+[node name="straight" type="Path2D" parent="paths"]
+curve = SubResource("Curve2D_wcv5g")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="paths/straight"]
+position = Vector2(48, 8)
+progress = 160.0
+
+[node name="up" type="Path2D" parent="paths"]
+position = Vector2(-8, 0)
+curve = SubResource("Curve2D_clo3v")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="paths/up"]
+position = Vector2(56, 8)
+rotation = -0.463648
+rotates = false
+
+[node name="Tram" type="Area2D" parent="paths/up/PathFollow2D"]
+rotation = 0.463648
+
+[node name="TileMap" type="TileMap" parent="paths/up/PathFollow2D/Tram"]
+visible = false
+position = Vector2(0, -8)
+tile_set = SubResource("TileSet_k6y7b")
+format = 2
+layer_0/name = "straight"
+layer_0/tile_data = PackedInt32Array(-65538, 458752, 2, -2, 0, 4, 65534, 0, 5, -65537, 524288, 2, -1, 65536, 4, 65535, 65536, 5, -65536, 196608, 4, 0, 196608, 5, -65535, 262144, 4, -65534, 327680, 4, -196608, 458752, 2, -4, 0, 4, 65532, 0, 5, 131068, 0, 6, -3, 65536, 4, 65533, 65536, 5, 131069, 65536, 6, 131070, 0, 6, 65530, 65536, 5, 131066, 65536, 6, 65531, 131072, 5, 131067, 131072, 6, 196604, 589824, 4, -262142, 458752, 2, -131068, 458752, 3, -10, 0, 4, 65526, 0, 5, 131062, 0, 6, -9, 65536, 4, 65527, 65536, 5, 131063, 65536, 6, -8, 131072, 4, 65528, 131072, 5, 131064, 131072, 6, -7, 0, 4, 65529, 0, 5, 131065, 0, 6, -6, 65536, 4, -5, 131072, 4, 131071, 65536, 6, 65536, 196608, 6, 1, 262144, 5, 65537, 262144, 6, 2, 327680, 5, 65538, 327680, 6, -65533, 393216, 4, 3, 393216, 5, 65539, 393216, 6, -65532, 458752, 4, -196603, 524288, 2, -131067, 524288, 3, -65531, 524288, 4, -196602, 458752, 3, -131066, 458752, 4, -65530, 589824, 4, -262138, 458752, 2, -262137, 524288, 2, -196601, 524288, 3, -131065, 524288, 4, -262136, 720896, 1, -196600, 720896, 2, -131064, 589824, 4, -262135, 786432, 1, -196599, 786432, 2, -327670, 851968, 0, -262134, 851968, 1, -196598, 851968, 2, -327669, 917504, 0, -262133, 917504, 1, -196597, 917504, 2, 131075, 393216, 7, 65540, 458752, 6, 131076, 458752, 7, 196612, 458752, 8, 65541, 524288, 6, 131077, 393216, 6, 196613, 393216, 7, 131078, 458752, 6, 196614, 458752, 7, 262150, 458752, 8, 131079, 524288, 6, 196615, 393216, 6, 262151, 393216, 7, 196616, 720896, 8, 262152, 720896, 9, 327688, 458752, 8, 196617, 786432, 8, 262153, 786432, 9, 327689, 524288, 8, 196618, 851968, 8, 262154, 851968, 9, 327690, 851968, 10, 196619, 917504, 8, 262155, 917504, 9, 327691, 917504, 10)
+
+[node name="straight" type="AnimatedSprite2D" parent="paths/up/PathFollow2D/Tram"]
+visible = false
+position = Vector2(-6, -13)
+sprite_frames = SubResource("SpriteFrames_wyik4")
+animation = &"straight"
+autoplay = "straight"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="paths/up/PathFollow2D/Tram"]
+visible = false
+position = Vector2(-2.5, -19.5)
+shape = SubResource("RectangleShape2D_siyof")
+
+[node name="up" type="AnimatedSprite2D" parent="paths/up/PathFollow2D/Tram"]
+visible = false
+position = Vector2(-1.08359, -16.9582)
+sprite_frames = SubResource("SpriteFrames_ywxa4")
+
+[node name="half_up" type="AnimatedSprite2D" parent="paths/up/PathFollow2D/Tram"]
+visible = false
+position = Vector2(-4, -20)
+sprite_frames = SubResource("SpriteFrames_jk8v3")
+
+[node name="down" type="Path2D" parent="paths"]
+curve = SubResource("Curve2D_tr7m2")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="paths/down"]
+position = Vector2(48, 8)
+rotation = 0.463648

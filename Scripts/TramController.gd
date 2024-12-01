@@ -3,8 +3,13 @@ extends Node
 
 
 @export var tram: Node2D
-var max_speed: int = 100
-var speed:int = 100
+var start_speed:int = 80
+const  min_speed:int = 50
+const abs_max_speed:int = 150
+var max_speed: int = 80:
+	set(value):
+		max_speed = clamp(value,min_speed,abs_max_speed)
+var speed:int
 var dist:float = 0
 
 @export var level: Node2D
@@ -24,6 +29,7 @@ func init_network()-> void:
 	#clear network
 	network.clear()
 	nodes_out.clear()
+	dist = 0
 	
 	
 	#meta data stored as nodepaths not nodes
@@ -35,7 +41,7 @@ func init_network()-> void:
 	for node: Array in rail_network.get_meta('Nodes'):
 		#assign all nodes the first output track as the ouput (first element reserved for input track)
 		nodes_out.append(1)
-		var node_rails: Array[Path2D] #the child rails of each path
+		var node_rails: Array[Path2D] = [] #the child rails of each path
 		for rail:NodePath in node:
 			node_rails.append(rail_network.get_node(rail)) #append the path2D
 		network.append(node_rails)
@@ -59,7 +65,6 @@ func find_next_node(_curr_rail:Path2D) -> int:
 func _ready() -> void:
 	follower = PathFollow2D.new()
 	add_child(follower)
-	init_network()	
 	speed = 0
 
 	#assumes node has a path follower node 
@@ -95,23 +100,32 @@ func _process(delta: float) -> void:
 				curr_node_idx = find_next_node(curr_rail)
 		
 		#update tram position
+		if follower.rotation == 0:
+			tram.straight()
+		elif follower.rotation < 0:
+			tram.up()
+		elif follower.rotation > 0:
+			tram.down()
 		follower.progress_ratio = dist/rail_len
 		tram.position = follower.position
-		tram.rotation = follower.rotation
 
 func _input(event: InputEvent) -> void:
 		if event.is_action_pressed("switch_tracks"):
-			toggle_switch(curr_node_idx)
+			toggle_switch()
 		if event.is_action_pressed("speed"):
-			speed = 100
+			max_speed = start_speed
+			speed = max_speed
+		if event.is_action_pressed("stop"):
+			speed = 0
 
-func toggle_switch(idx:int) -> void:
-	var line_idx:int = nodes_out[curr_node_idx] 
-	line_idx += 1
-	line_idx = wrap(line_idx,1,3)
-	nodes_out[curr_node_idx] = line_idx
-	if line_idx == 1:
-		level.rail_network.signals[curr_node_idx].up()
-	else: 
-		level.rail_network.signals[curr_node_idx].down()
-	
+func toggle_switch() -> void:
+	if curr_node_idx != -1:
+		var line_idx:int = nodes_out[curr_node_idx] 
+		line_idx += 1
+		line_idx = wrap(line_idx,1,3)
+		nodes_out[curr_node_idx] = line_idx
+		if line_idx == 1:
+			level.rail_network.signals[curr_node_idx].up()
+		else: 
+			level.rail_network.signals[curr_node_idx].down()
+		

@@ -8,42 +8,56 @@ extends Node2D
 var top_animals: Array[Area2D]
 var bottom_animals: Array[Area2D]
 @export var Coin:PackedScene
+@onready var camera: Camera2D = $TramController/Tram/Camera2D
+@onready var hud: CanvasLayer = $TramController/Tram/HUD
 
 #player properties
-var score:int
-var max_speed:int
-var morality:int = 0
+var score:int = 0
+var morality:int = 0:
+	set(val):
+		morality = clamp(val,-50,50)
+var speed_multiplier: float
+var morality_multiplier:float
+
 
 var num_stops:int = 5
+var level_num: int = 0
 var top_path_chosen:bool
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	load_next_level()
 	tram_controller.update_tram = true
-	spawn_animals()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 
 func load_scene(lvl:PackedScene)->void:
-	level.queue_free()
+	if level != null:
+		level.queue_free()
 	level = lvl.instantiate()
 	tram_controller.level = level
 	add_child(level)
 	
 func load_next_level()-> void:
-	load_scene(next_level)
+	var rand_lvl:PackedScene = levels.pick_random()
+	level_num += 1
+	load_scene(rand_lvl)
+	spawn_animals()
+	camera.limit_left = level.left_end.position.x
+	camera.limit_right = level.right_end.position.x
 	tram_controller.init_network()
 	tram_controller.update_tram = true
 	
 func on_animal_hit(animal:Area2D) ->void:
 	animal.kill()
+	morality += animal.morality_on_kill
+	update_hud()
 	if animal == top_animals[0]: 
+		#if last animal stop tram and board animals
 		top_path_chosen = true
 		tram_controller.speed = 0
 		move_animals_to_tram()
 	elif animal == bottom_animals[0]:
+		#if last animal stop tram and board animals
 		top_path_chosen = false
 		tram_controller.speed = 0
 		move_animals_to_tram()
@@ -53,6 +67,7 @@ func move_animals_to_tram()->void:
 	var animals_to_move: Array[Area2D]
 	var goal_pos: Vector2
 	
+	#disable collision for animals
 	for animal in top_animals:
 		animal.set_deferred('monitorable',false)
 	for animal in bottom_animals:
@@ -68,15 +83,29 @@ func move_animals_to_tram()->void:
 		goal_pos = level.animal_spawns.bottom_path[0].position
 	
 	for i:int in range(animals_to_move.size()):
+		#add waypoints for animal walk path
 		animals_to_move[i].add_waypoint(markers[0].position)
 		animals_to_move[i].add_waypoint(goal_pos)
+		#connect a signal for movement ended
 		animals_to_move[i].movement_ended.connect(add_to_tram)
 
 func add_to_tram(animal:Area2D)->void:
+	tram_controller.max_speed += animal.speed_modifier
+	score += animal.coin.value * (1 + morality_multiplier + speed_multiplier)
+	morality += animal.morality_on_save
+	update_hud()
 	animal.queue_free()
+	if animal == top_animals[-1] or animal == bottom_animals[-1]:
+		tram_controller.speed = tram_controller.max_speed
+		morality_multiplier =  morality/200
+		speed_multiplier =  (tram_controller.speed - tram_controller.start_speed)/200
+	
+func update_hud()->void:
+	hud.set_morality(morality)
+	hud.set_score(score)
 
 func spawn_animal_row(markers:Array[Marker2D],amount:int)->Array[Area2D]:	
-	var _animals: Array[Area2D]
+	var _animals: Array[Area2D] = []
 	for i:int in range(amount):
 		
 		#choose random animal

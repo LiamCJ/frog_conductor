@@ -8,39 +8,29 @@
 [ext_resource type="PackedScene" uid="uid://sihn7yioq3k2" path="res://scenes/characters/rabbit.tscn" id="3_ipnub"]
 [ext_resource type="PackedScene" uid="uid://chop6itr1y3lb" path="res://scenes/characters/tortoise.tscn" id="4_q77nf"]
 [ext_resource type="PackedScene" uid="uid://lyc588ij5c30" path="res://scenes/environment_objects/coin.tscn" id="4_spmja"]
+[ext_resource type="Script" path="res://scripts/Camera.gd" id="9_bs3oj"]
+[ext_resource type="PackedScene" uid="uid://gdwbp7w0ykhb" path="res://scenes/hud/hud.tscn" id="10_l7sdp"]
 
-[sub_resource type="Animation" id="Animation_qhtcp"]
-resource_name = "animal_walk"
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_a4arf"]
-_data = {
-"animal_walk": SubResource("Animation_qhtcp")
-}
-
-[node name="Main" type="Node2D" node_paths=PackedStringArray("level")]
+[node name="Main" type="Node2D"]
 script = ExtResource("1_ofw73")
-level = NodePath("Level1")
 next_level = ExtResource("2_4nupm")
+levels = Array[PackedScene]([ExtResource("2_uh4ug")])
 animals = Array[PackedScene]([ExtResource("3_ipnub"), ExtResource("4_q77nf")])
 Coin = ExtResource("4_spmja")
 
-[node name="TramController" type="Node" parent="." node_paths=PackedStringArray("tram", "level")]
+[node name="TramController" type="Node" parent="." node_paths=PackedStringArray("tram")]
 script = ExtResource("2_ivblk")
 tram = NodePath("Tram")
-level = NodePath("../Level1")
 
 [node name="Tram" parent="TramController" instance=ExtResource("3_2v853")]
+position = Vector2(-8, -8)
 
-[node name="Level1" parent="." instance=ExtResource("2_uh4ug")]
+[node name="Camera2D" type="Camera2D" parent="TramController/Tram"]
+position = Vector2(188, 0)
+zoom = Vector2(2.2, 2.2)
+script = ExtResource("9_bs3oj")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(182, 13)
-zoom = Vector2(2, 2)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_a4arf")
-}
+[node name="HUD" parent="TramController/Tram" instance=ExtResource("10_l7sdp")]
 
 [connection signal="track_ended" from="TramController" to="." method="load_next_level" flags=3]
 [connection signal="area_entered" from="TramController/Tram" to="." method="on_animal_hit"]

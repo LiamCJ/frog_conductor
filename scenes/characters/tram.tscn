@@ -1,12 +1,201 @@
-[gd_scene load_steps=4 format=3 uid="uid://b0vx7g7jys4d3"]
+[gd_scene load_steps=24 format=3 uid="uid://b0vx7g7jys4d3"]
 
-[ext_resource type="Texture2D" uid="uid://bk3egg4ekgxj" path="res://assets/sprites/tram.png" id="1_n3s2n"]
+[ext_resource type="Texture2D" uid="uid://dtw65can3q55h" path="res://assets/bg/rails.png" id="1_2lyxk"]
+[ext_resource type="Script" path="res://scripts/tram.gd" id="1_4yxp1"]
+[ext_resource type="Texture2D" uid="uid://d03k7jounig7p" path="res://assets/sprites/tram/tram_straight_Sheet.png" id="1_wwih5"]
+[ext_resource type="Texture2D" uid="uid://bw6a8nj0o0ywm" path="res://assets/sprites/tram/tram_down.png" id="2_yyjhv"]
+[ext_resource type="Texture2D" uid="uid://bvc8r52ri5d14" path="res://assets/sprites/tram/tram_up.png" id="4_xgb6y"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_wyik4"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fnstl"]
+texture = ExtResource("1_2lyxk")
+9:0/0 = 0
+10:0/0 = 0
+13:0/0 = 0
+14:0/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+10:1/0 = 0
+11:1/0 = 0
+12:1/0 = 0
+13:1/0 = 0
+14:1/0 = 0
+15:1/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+10:2/0 = 0
+11:2/0 = 0
+12:2/0 = 0
+13:2/0 = 0
+14:2/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+10:3/0 = 0
+11:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+9:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+8:6/0 = 0
+9:6/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+8:7/0 = 0
+9:7/0 = 0
+10:7/0 = 0
+11:7/0 = 0
+7:8/0 = 0
+8:8/0 = 0
+9:8/0 = 0
+10:8/0 = 0
+11:8/0 = 0
+12:8/0 = 0
+13:8/0 = 0
+14:8/0 = 0
+7:9/0 = 0
+8:9/0 = 0
+9:9/0 = 0
+10:9/0 = 0
+11:9/0 = 0
+12:9/0 = 0
+13:9/0 = 0
+14:9/0 = 0
+15:9/0 = 0
+9:10/0 = 0
+10:10/0 = 0
+13:10/0 = 0
+14:10/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_k6y7b"]
+sources/0 = SubResource("TileSetAtlasSource_fnstl")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nnlbj"]
+atlas = ExtResource("1_wwih5")
+region = Rect2(0, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mun3c"]
+atlas = ExtResource("1_wwih5")
+region = Rect2(80, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nxbs0"]
+atlas = ExtResource("1_wwih5")
+region = Rect2(160, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mg8y2"]
+atlas = ExtResource("1_wwih5")
+region = Rect2(240, 0, 80, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0tsev"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_n3s2n")
+"texture": SubResource("AtlasTexture_nnlbj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mun3c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nxbs0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mg8y2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uecxb"]
+atlas = ExtResource("2_yyjhv")
+region = Rect2(0, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rme4g"]
+atlas = ExtResource("2_yyjhv")
+region = Rect2(80, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o7roe"]
+atlas = ExtResource("2_yyjhv")
+region = Rect2(160, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k34wi"]
+atlas = ExtResource("2_yyjhv")
+region = Rect2(240, 0, 80, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ofh4g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uecxb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rme4g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o7roe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k34wi")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4s530"]
+atlas = ExtResource("4_xgb6y")
+region = Rect2(0, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jh6i2"]
+atlas = ExtResource("4_xgb6y")
+region = Rect2(80, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_70n60"]
+atlas = ExtResource("4_xgb6y")
+region = Rect2(160, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mpcy5"]
+atlas = ExtResource("4_xgb6y")
+region = Rect2(240, 0, 80, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y7lbp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4s530")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jh6i2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_70n60")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mpcy5")
 }],
 "loop": true,
 "name": &"default",
@@ -14,15 +203,40 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_siyof"]
-size = Vector2(53, 34)
+size = Vector2(59, 39)
 
 [node name="Tram" type="Area2D"]
+script = ExtResource("1_4yxp1")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -32)
-sprite_frames = SubResource("SpriteFrames_wyik4")
-frame_progress = 0.599462
+[node name="TileMap" type="TileMap" parent="."]
+visible = false
+position = Vector2(0, -8)
+tile_set = SubResource("TileSet_k6y7b")
+format = 2
+layer_0/name = "straight"
+layer_0/tile_data = PackedInt32Array(-65538, 458752, 2, -2, 0, 4, 65534, 0, 5, -65537, 524288, 2, -1, 0, 4, 65535, 0, 5, -65536, 65536, 4, 0, 65536, 5, -65535, 0, 4, -65534, 65536, 4, -196608, 458752, 2, -4, 0, 4, 65532, 0, 5, 131068, 0, 6, -3, 65536, 4, 65533, 65536, 5, 131069, 65536, 6, 131070, 0, 6, 65530, 65536, 5, 131066, 65536, 6, 65531, 131072, 5, 131067, 131072, 6, 196604, 589824, 4, -262142, 458752, 2, -10, 0, 4, 65526, 0, 5, 131062, 0, 6, -9, 65536, 4, 65527, 65536, 5, 131063, 65536, 6, -8, 131072, 4, 65528, 131072, 5, 131064, 131072, 6, -7, 0, 4, 65529, 0, 5, 131065, 0, 6, -6, 65536, 4, -5, 131072, 4, 131071, 0, 6, 65536, 65536, 6, 1, 0, 5, 65537, 0, 6, 2, 65536, 5, 65538, 65536, 6, -65533, 131072, 4, 3, 131072, 5, 65539, 131072, 6, -65532, 0, 4, -65531, 65536, 4, -65530, 131072, 4, 65540, 0, 6, 65541, 65536, 6, 262150, 458752, 8, 327688, 458752, 8, 327689, 524288, 8, 327690, 851968, 10, 327691, 917504, 10, 4, 0, 5, 5, 65536, 5, 6, 131072, 5, 65542, 131072, 6, -65529, 0, 4, 7, 0, 5, 65543, 0, 6, -65528, 65536, 4, 8, 65536, 5, 65544, 65536, 6, -65527, 131072, 4, 9, 131072, 5, 65545, 131072, 6)
+layer_1/name = "up"
+layer_1/tile_data = PackedInt32Array(65533, 524288, 2, 131069, 524288, 3, 196605, 524288, 4, 65534, 589824, 2, 131070, 589824, 3, 196606, 589824, 4, 65535, 524288, 3, 131071, 524288, 4, 196607, 589824, 4, -1, 524288, 2, -65536, 458752, 3, 0, 458752, 4, 65536, 589824, 4, -65535, 524288, 3, 1, 524288, 4, 65537, 589824, 4, -2, 458752, 2, 65532, 458752, 2, 131068, 589824, 2, 196604, 589824, 3, -131072, 458752, 2, -131071, 524288, 2, -131070, 458752, 3, -65534, 458752, 4, 2, 589824, 4, -196606, 458752, 2, -196605, 524288, 2, -131069, 524288, 3, -65533, 524288, 4, -196604, 458752, 3, -131068, 458752, 4, -65532, 589824, 4, -262140, 458752, 2, -262139, 524288, 2, -196603, 524288, 3, -131067, 524288, 4, -262138, 589824, 2, -196602, 589824, 3, -131066, 589824, 4, 131066, 458752, 2, 196602, 458752, 3, 262138, 458752, 4, 131067, 524288, 2, 196603, 524288, 3, 262139, 524288, 4, 262140, 589824, 4)
+layer_2/name = "down"
+layer_2/tile_data = PackedInt32Array(-2, 589824, 7, 65534, 589824, 8, 131070, 458752, 8, -1, 524288, 6, 65535, 524288, 7, 131071, 524288, 8, -65536, 589824, 6, 0, 589824, 7, 65536, 589824, 8, 131073, 524288, 8, 131074, 458752, 7, 131075, 524288, 7, 196611, 524288, 8, 1, 524288, 6, 65537, 524288, 7, 2, 589824, 6, 65538, 458752, 6, 65539, 524288, 6, 65540, 589824, 6, 131076, 458752, 6, 196612, 458752, 7, 131077, 524288, 6, 196613, 524288, 7, 262149, 524288, 8, 131078, 589824, 6, 196614, 589824, 7, 262150, 589824, 8, -65539, 524288, 6, -3, 524288, 7, 65533, 524288, 8, -65538, 589824, 6, -65537, 589824, 6, -65540, 589824, 7, -4, 589824, 8, 65532, 458752, 8, -131078, 458752, 6, -65542, 458752, 7, -6, 458752, 8, -131077, 524288, 6, -65541, 524288, 7, -5, 524288, 8, -131076, 589824, 6)
+
+[node name="straight_animator" type="AnimatedSprite2D" parent="."]
+position = Vector2(-6, -13)
+sprite_frames = SubResource("SpriteFrames_0tsev")
+autoplay = "default"
+
+[node name="down_animator" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(-6, -17)
+sprite_frames = SubResource("SpriteFrames_ofh4g")
+autoplay = "default"
+
+[node name="up_animator" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(-4, -15)
+sprite_frames = SubResource("SpriteFrames_y7lbp")
+autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2.5, -18)
+position = Vector2(-9, -14)
 shape = SubResource("RectangleShape2D_siyof")

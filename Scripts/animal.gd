@@ -22,6 +22,7 @@ func kill()->void:
 	dead = true
 	animated_sprite.animation = 'dead'
 	animated_sprite.play()
+	coin.queue_free()
 
 func set_value(val:int)->void:
 	coin.value = val
