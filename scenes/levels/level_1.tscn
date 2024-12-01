@@ -1,9 +1,9 @@
 [gd_scene load_steps=15 format=3 uid="uid://d0yb3870nx7cc"]
 
-[ext_resource type="Script" path="res://scripts/level_1.gd" id="1_15mu0"]
+[ext_resource type="Script" path="res://Scripts/level_1.gd" id="1_15mu0"]
 [ext_resource type="Texture2D" uid="uid://cecpt3w7fnlxs" path="res://assets/bg/world_tiles.png" id="2_5uqfy"]
 [ext_resource type="Texture2D" uid="uid://b6fl6vbrq5pg7" path="res://assets/sprites/ugame_coopy.png" id="3_iwlc1"]
-[ext_resource type="Script" path="res://scripts/RailNetwork.gd" id="3_pngir"]
+[ext_resource type="Script" path="res://Scripts/RailNetwork.gd" id="3_pngir"]
 [ext_resource type="PackedScene" uid="uid://dlr66r74gbhpc" path="res://scenes/levels/animal_spawns.tscn" id="4_saxio"]
 [ext_resource type="PackedScene" uid="uid://c2sv8c57v25po" path="res://scenes/environment_objects/switch_indicator.tscn" id="4_vy0sh"]
 [ext_resource type="PackedScene" uid="uid://lyc588ij5c30" path="res://scenes/environment_objects/coin.tscn" id="7_0nrjt"]

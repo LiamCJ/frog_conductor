@@ -1,13 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://cs7o3vfaxi0oy"]
+[gd_scene load_steps=12 format=3 uid="uid://cs7o3vfaxi0oy"]
 
-[ext_resource type="Script" path="res://scripts/Main.gd" id="1_ofw73"]
+[ext_resource type="Script" path="res://Scripts/Main.gd" id="1_ofw73"]
 [ext_resource type="PackedScene" uid="uid://dfml4o541lh7f" path="res://scenes/levels/level_2.tscn" id="2_4nupm"]
-[ext_resource type="Script" path="res://scripts/TramController.gd" id="2_ivblk"]
+[ext_resource type="Script" path="res://Scripts/TramController.gd" id="2_ivblk"]
 [ext_resource type="PackedScene" uid="uid://d0yb3870nx7cc" path="res://scenes/levels/level_1.tscn" id="2_uh4ug"]
 [ext_resource type="PackedScene" uid="uid://b0vx7g7jys4d3" path="res://scenes/characters/tram.tscn" id="3_2v853"]
 [ext_resource type="PackedScene" uid="uid://sihn7yioq3k2" path="res://scenes/characters/rabbit.tscn" id="3_ipnub"]
 [ext_resource type="PackedScene" uid="uid://chop6itr1y3lb" path="res://scenes/characters/tortoise.tscn" id="4_q77nf"]
 [ext_resource type="PackedScene" uid="uid://lyc588ij5c30" path="res://scenes/environment_objects/coin.tscn" id="4_spmja"]
+[ext_resource type="Script" path="res://Scripts/level_1.gd" id="9_0xow7"]
 
 [sub_resource type="Animation" id="Animation_qhtcp"]
 resource_name = "animal_walk"
@@ -32,6 +33,7 @@ level = NodePath("../Level1")
 [node name="Tram" parent="TramController" instance=ExtResource("3_2v853")]
 
 [node name="Level1" parent="." instance=ExtResource("2_uh4ug")]
+script = ExtResource("9_0xow7")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(182, 13)

@@ -1,6 +1,5 @@
-[gd_scene load_steps=9 format=3 uid="uid://dfml4o541lh7f"]
+[gd_scene load_steps=8 format=3 uid="uid://dfml4o541lh7f"]
 
-[ext_resource type="Script" path="res://scripts/level_1.gd" id="1_17oey"]
 [ext_resource type="Texture2D" uid="uid://cecpt3w7fnlxs" path="res://assets/bg/world_tiles.png" id="2_w1hod"]
 [ext_resource type="Texture2D" uid="uid://b6fl6vbrq5pg7" path="res://assets/sprites/ugame_coopy.png" id="3_3ultm"]
 
@@ -280,9 +279,7 @@ _data = {
 }
 point_count = 3
 
-[node name="Level2" type="Node2D" node_paths=PackedStringArray("rail_network")]
-script = ExtResource("1_17oey")
-rail_network = NodePath("RailNetwork")
+[node name="Level2" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_yjox8")

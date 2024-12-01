@@ -1,11 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://dlr66r74gbhpc"]
+[gd_scene format=3 uid="uid://dlr66r74gbhpc"]
 
-[ext_resource type="Script" path="res://scripts/AnimalSpawns.gd" id="1_mfbkx"]
-
-[node name="AnimalSpawns" type="Node" node_paths=PackedStringArray("top_path", "bottom_path")]
-script = ExtResource("1_mfbkx")
-top_path = [NodePath("top1"), NodePath("top2"), NodePath("top3"), NodePath("top4"), NodePath("top5")]
-bottom_path = [NodePath("bot1"), NodePath("bot2"), NodePath("bot3"), NodePath("bot4"), NodePath("bot5")]
+[node name="AnimalSpawns" type="Node"]
 
 [node name="top1" type="Marker2D" parent="."]
 position = Vector2(256, -56)
