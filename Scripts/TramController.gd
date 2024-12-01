@@ -3,6 +3,7 @@ extends Node
 
 
 @export var tram: Node2D
+var max_speed: int = 100
 var speed:int = 100
 var dist:float = 0
 
