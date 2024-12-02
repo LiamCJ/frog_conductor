@@ -205,8 +205,10 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_siyof"]
 size = Vector2(59, 39)
 
-[node name="Tram" type="Area2D"]
+[node name="Tram" type="Area2D" node_paths=PackedStringArray("door_marker")]
+y_sort_enabled = true
 script = ExtResource("1_4yxp1")
+door_marker = NodePath("DoorMarker")
 
 [node name="TileMap" type="TileMap" parent="."]
 visible = false
@@ -221,18 +223,21 @@ layer_2/name = "down"
 layer_2/tile_data = PackedInt32Array(-2, 589824, 7, 65534, 589824, 8, 131070, 458752, 8, -1, 524288, 6, 65535, 524288, 7, 131071, 524288, 8, -65536, 589824, 6, 0, 589824, 7, 65536, 589824, 8, 131073, 524288, 8, 131074, 458752, 7, 131075, 524288, 7, 196611, 524288, 8, 1, 524288, 6, 65537, 524288, 7, 2, 589824, 6, 65538, 458752, 6, 65539, 524288, 6, 65540, 589824, 6, 131076, 458752, 6, 196612, 458752, 7, 131077, 524288, 6, 196613, 524288, 7, 262149, 524288, 8, 131078, 589824, 6, 196614, 589824, 7, 262150, 589824, 8, -65539, 524288, 6, -3, 524288, 7, 65533, 524288, 8, -65538, 589824, 6, -65537, 589824, 6, -65540, 589824, 7, -4, 589824, 8, 65532, 458752, 8, -131078, 458752, 6, -65542, 458752, 7, -6, 458752, 8, -131077, 524288, 6, -65541, 524288, 7, -5, 524288, 8, -131076, 589824, 6)
 
 [node name="straight_animator" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(-6, -13)
 sprite_frames = SubResource("SpriteFrames_0tsev")
 autoplay = "default"
 
 [node name="down_animator" type="AnimatedSprite2D" parent="."]
 visible = false
+y_sort_enabled = true
 position = Vector2(-6, -17)
 sprite_frames = SubResource("SpriteFrames_ofh4g")
 autoplay = "default"
 
 [node name="up_animator" type="AnimatedSprite2D" parent="."]
 visible = false
+y_sort_enabled = true
 position = Vector2(-4, -15)
 sprite_frames = SubResource("SpriteFrames_y7lbp")
 autoplay = "default"
@@ -240,3 +245,6 @@ autoplay = "default"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-9, -14)
 shape = SubResource("RectangleShape2D_siyof")
+
+[node name="DoorMarker" type="Marker2D" parent="."]
+position = Vector2(9, 2)

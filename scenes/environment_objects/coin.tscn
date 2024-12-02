@@ -1,14 +1,18 @@
 [gd_scene load_steps=4 format=3 uid="uid://lyc588ij5c30"]
 
-[ext_resource type="Texture2D" uid="uid://c54mve8hbjykr" path="res://assets/sprites/coin.png" id="1_o122y"]
 [ext_resource type="Script" path="res://scripts/coin.gd" id="1_q4nm6"]
+[ext_resource type="Texture2D" uid="uid://djjev8axjb52h" path="res://assets/sprites/hud/acorn.png" id="2_mc25s"]
 [ext_resource type="FontFile" uid="uid://b8mclly4vhrwl" path="res://assets/fonts/PixelOperator8.ttf" id="3_nscqh"]
 
 [node name="Coin" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_q4nm6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_o122y")
+y_sort_enabled = true
+position = Vector2(1, -2)
+scale = Vector2(0.416667, 0.416667)
+texture = ExtResource("2_mc25s")
 
 [node name="Node2D" type="Node2D" parent="."]
 scale = Vector2(0.6, 0.6)
@@ -26,9 +30,9 @@ offset_bottom = 10.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0.32, 0.128, 0, 1)
+theme_override_colors/font_color = Color(0.968627, 0.819608, 0.968627, 1)
 theme_override_fonts/font = ExtResource("3_nscqh")
 theme_override_font_sizes/font_size = 8
-text = "10"
+text = "80"
 horizontal_alignment = 1
 vertical_alignment = 1

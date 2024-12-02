@@ -68,8 +68,8 @@ animations = [{
 size = Vector2(10, 32)
 
 [node name="Rabbit" instance=ExtResource("1_gip1x")]
-morality_on_kill = -3
-morality_on_save = 2
+morality_on_kill = -5
+morality_on_save = 5
 speed_modifier = 20
 
 [node name="AnimatedSprite2D" parent="." index="0"]

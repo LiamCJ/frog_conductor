@@ -4,3 +4,4 @@ extends Node2D
 @export var animal_spawns: Node
 @export var left_end:Node
 @export var right_end:Node
+@export var train_stop:Area2D

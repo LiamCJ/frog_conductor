@@ -3,6 +3,7 @@ extends Area2D
 @onready var straight_animator: AnimatedSprite2D = $straight_animator
 @onready var down_animator: AnimatedSprite2D = $down_animator
 @onready var up_animator: AnimatedSprite2D = $up_animator
+@export var door_marker:Marker2D
 
 func _ready() -> void:
 	$TileMap.queue_free()

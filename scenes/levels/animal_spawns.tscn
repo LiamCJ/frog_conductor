@@ -8,19 +8,19 @@ top_path = [NodePath("top1"), NodePath("top2"), NodePath("top3"), NodePath("top4
 bottom_path = [NodePath("bot1"), NodePath("bot2"), NodePath("bot3"), NodePath("bot4"), NodePath("bot5")]
 
 [node name="top1" type="Marker2D" parent="."]
-position = Vector2(256, -56)
+position = Vector2(288, -57)
 gizmo_extents = 15.0
 
 [node name="top2" type="Marker2D" parent="."]
-position = Vector2(232, -56)
+position = Vector2(256, -57)
 gizmo_extents = 15.0
 
 [node name="top3" type="Marker2D" parent="."]
-position = Vector2(208, -56)
+position = Vector2(224, -57)
 gizmo_extents = 15.0
 
 [node name="top4" type="Marker2D" parent="."]
-position = Vector2(184, -56)
+position = Vector2(192, -57)
 gizmo_extents = 15.0
 
 [node name="top5" type="Marker2D" parent="."]
@@ -28,19 +28,19 @@ position = Vector2(160, -56)
 gizmo_extents = 15.0
 
 [node name="bot1" type="Marker2D" parent="."]
-position = Vector2(255, 39)
+position = Vector2(287, 38)
 gizmo_extents = 15.0
 
 [node name="bot2" type="Marker2D" parent="."]
-position = Vector2(231, 39)
+position = Vector2(255, 38)
 gizmo_extents = 15.0
 
 [node name="bot3" type="Marker2D" parent="."]
-position = Vector2(207, 39)
+position = Vector2(223, 38)
 gizmo_extents = 15.0
 
 [node name="bot4" type="Marker2D" parent="."]
-position = Vector2(183, 39)
+position = Vector2(191, 38)
 gizmo_extents = 15.0
 
 [node name="bot5" type="Marker2D" parent="."]

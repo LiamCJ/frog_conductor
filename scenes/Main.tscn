@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://cs7o3vfaxi0oy"]
+[gd_scene load_steps=12 format=3 uid="uid://cs7o3vfaxi0oy"]
 
 [ext_resource type="Script" path="res://scripts/Main.gd" id="1_ofw73"]
-[ext_resource type="PackedScene" uid="uid://dfml4o541lh7f" path="res://scenes/levels/level_2.tscn" id="2_4nupm"]
+[ext_resource type="PackedScene" uid="uid://due07gb4ucpil" path="res://scenes/levels/level_2.tscn" id="2_4nupm"]
+[ext_resource type="PackedScene" uid="uid://bqsgmda24mled" path="res://scenes/levels/start.tscn" id="2_4wr8x"]
 [ext_resource type="Script" path="res://scripts/TramController.gd" id="2_ivblk"]
 [ext_resource type="PackedScene" uid="uid://d0yb3870nx7cc" path="res://scenes/levels/level_1.tscn" id="2_uh4ug"]
 [ext_resource type="PackedScene" uid="uid://b0vx7g7jys4d3" path="res://scenes/characters/tram.tscn" id="3_2v853"]
@@ -12,13 +13,15 @@
 [ext_resource type="PackedScene" uid="uid://gdwbp7w0ykhb" path="res://scenes/hud/hud.tscn" id="10_l7sdp"]
 
 [node name="Main" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_ofw73")
-next_level = ExtResource("2_4nupm")
-levels = Array[PackedScene]([ExtResource("2_uh4ug")])
+levels = Array[PackedScene]([ExtResource("2_uh4ug"), ExtResource("2_4nupm")])
+start_level = ExtResource("2_4wr8x")
 animals = Array[PackedScene]([ExtResource("3_ipnub"), ExtResource("4_q77nf")])
 Coin = ExtResource("4_spmja")
 
-[node name="TramController" type="Node" parent="." node_paths=PackedStringArray("tram")]
+[node name="TramController" type="Node2D" parent="." node_paths=PackedStringArray("tram")]
+y_sort_enabled = true
 script = ExtResource("2_ivblk")
 tram = NodePath("Tram")
 
@@ -32,5 +35,5 @@ script = ExtResource("9_bs3oj")
 
 [node name="HUD" parent="TramController/Tram" instance=ExtResource("10_l7sdp")]
 
-[connection signal="track_ended" from="TramController" to="." method="load_next_level" flags=3]
+[connection signal="track_ended" from="TramController" to="." method="load_next_level"]
 [connection signal="area_entered" from="TramController/Tram" to="." method="on_animal_hit"]

@@ -65,7 +65,7 @@ func find_next_node(_curr_rail:Path2D) -> int:
 func _ready() -> void:
 	follower = PathFollow2D.new()
 	add_child(follower)
-	speed = 0
+	speed = start_speed
 
 	#assumes node has a path follower node 
 
@@ -108,15 +108,6 @@ func _process(delta: float) -> void:
 			tram.down()
 		follower.progress_ratio = dist/rail_len
 		tram.position = follower.position
-
-func _input(event: InputEvent) -> void:
-		if event.is_action_pressed("switch_tracks"):
-			toggle_switch()
-		if event.is_action_pressed("speed"):
-			max_speed = start_speed
-			speed = max_speed
-		if event.is_action_pressed("stop"):
-			speed = 0
 
 func toggle_switch() -> void:
 	if curr_node_idx != -1:

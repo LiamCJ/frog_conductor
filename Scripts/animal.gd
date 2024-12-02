@@ -23,6 +23,7 @@ func kill()->void:
 	animated_sprite.animation = 'dead'
 	animated_sprite.play()
 	coin.queue_free()
+	$AudioStreamPlayer.play()
 
 func set_value(val:int)->void:
 	coin.value = val

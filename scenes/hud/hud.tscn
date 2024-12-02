@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://gdwbp7w0ykhb"]
+[gd_scene load_steps=7 format=3 uid="uid://gdwbp7w0ykhb"]
 
 [ext_resource type="Script" path="res://scripts/hud.gd" id="1_8vogk"]
 [ext_resource type="Texture2D" uid="uid://djjev8axjb52h" path="res://assets/sprites/hud/acorn.png" id="1_ohgu0"]
 [ext_resource type="Texture2D" uid="uid://nf0en0pbij5j" path="res://assets/sprites/hud/morale_meter.png" id="2_ik5cd"]
 [ext_resource type="Texture2D" uid="uid://ttqi3w0upp6y" path="res://assets/sprites/hud/morale_reed.png" id="3_kmc37"]
 [ext_resource type="FontFile" uid="uid://b8mclly4vhrwl" path="res://assets/fonts/PixelOperator8.ttf" id="4_ewpdr"]
+[ext_resource type="FontFile" uid="uid://cdikjh8lk3xvt" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="6_oow5q"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_8vogk")
@@ -98,7 +99,8 @@ offset_right = 20.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("4_ewpdr")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_oow5q")
 theme_override_font_sizes/font_size = 64
 text = "GAME FINISHED"
 horizontal_alignment = 1
@@ -117,7 +119,8 @@ offset_right = 86.0
 offset_bottom = 95.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("4_ewpdr")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_oow5q")
 theme_override_font_sizes/font_size = 32
 text = "Score:"
 horizontal_alignment = 1
