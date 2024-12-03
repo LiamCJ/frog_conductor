@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://dg34mi43nhptx"]
+[gd_scene load_steps=9 format=3 uid="uid://dg34mi43nhptx"]
 
 [ext_resource type="Script" path="res://Scripts/animal.gd" id="1_jdxmn"]
 [ext_resource type="Texture2D" uid="uid://ijy5lvy1f1gn" path="res://assets/sprites/raodkill.png" id="2_nmli2"]
 [ext_resource type="Texture2D" uid="uid://d2p23oxgvf3ac" path="res://assets/sprites/rabbit/rabbit.png" id="3_03hm5"]
 [ext_resource type="PackedScene" uid="uid://lyc588ij5c30" path="res://scenes/environment_objects/coin.tscn" id="3_a5cyh"]
-[ext_resource type="AudioStream" uid="uid://d4msjrbcdqb53" path="res://assets/audio/458974__personwhois__large-bone-crunch.mp3" id="5_3jp5d"]
+[ext_resource type="AudioStream" uid="uid://ct82bxqgfmcg6" path="res://assets/audio/death_effects/desk-thud-106752.mp3" id="5_cgnkr"]
+[ext_resource type="AudioStream" uid="uid://bblhiaip0qnno" path="res://assets/audio/death_effects/hit-flesh-02-266309.mp3" id="6_3gdu2"]
+[ext_resource type="AudioStream" uid="uid://dobg2pqpsf488" path="res://assets/audio/death_effects/stick-hitting-a-dreadlock-small-thud-83297.mp3" id="7_hiqms"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ifhy7"]
 animations = [{
@@ -25,9 +27,10 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Animal" type="Area2D"]
+[node name="Animal" type="Area2D" node_paths=PackedStringArray("death_effects")]
 y_sort_enabled = true
 script = ExtResource("1_jdxmn")
+death_effects = [NodePath("AudioStreamPlayer"), NodePath("AudioStreamPlayer2"), NodePath("AudioStreamPlayer3")]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 y_sort_enabled = true
@@ -41,5 +44,14 @@ animation = &"new_animation"
 position = Vector2(12, -4)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_3jp5d")
+stream = ExtResource("5_cgnkr")
+volume_db = -10.0
+bus = &"sfx"
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_3gdu2")
+bus = &"sfx"
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_hiqms")
 bus = &"sfx"

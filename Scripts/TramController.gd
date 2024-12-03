@@ -12,6 +12,8 @@ var max_speed: int = 80:
 var speed:int
 var dist:float = 0
 
+@onready var audio_moving: AudioStreamPlayer = $TramRunning
+
 @export var level: Node2D
 var network: Array
 var nodes_out: Array[int]
@@ -76,6 +78,11 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if update_tram:
 		var rail_len:float = curr_rail.curve.get_baked_length()
+		if speed == 0:
+			audio_moving.stop()
+		elif audio_moving.playing == false:
+			audio_moving.play()
+
 		#dist along current rail
 		dist += speed * delta
 		if dist > rail_len:
@@ -111,6 +118,7 @@ func _process(delta: float) -> void:
 
 func toggle_switch() -> void:
 	if curr_node_idx != -1:
+		$SwitchTrack.play()
 		var line_idx:int = nodes_out[curr_node_idx] 
 		line_idx += 1
 		line_idx = wrap(line_idx,1,3)

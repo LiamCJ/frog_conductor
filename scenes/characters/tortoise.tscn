@@ -61,6 +61,8 @@ animations = [{
 size = Vector2(16, 32)
 
 [node name="Tortoise" instance=ExtResource("1_13e1x")]
+morality_on_kill = -5
+morality_on_save = 5
 speed_modifier = -20
 
 [node name="AnimatedSprite2D" parent="." index="0"]

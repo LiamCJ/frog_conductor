@@ -8,6 +8,7 @@
 [ext_resource type="FontFile" uid="uid://cdikjh8lk3xvt" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="6_oow5q"]
 
 [node name="HUD" type="CanvasLayer"]
+visible = false
 script = ExtResource("1_8vogk")
 
 [node name="Control" type="Control" parent="."]
@@ -99,7 +100,9 @@ offset_right = 20.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.168, 0.230067, 0.7, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 19
 theme_override_fonts/font = ExtResource("6_oow5q")
 theme_override_font_sizes/font_size = 64
 text = "GAME FINISHED"
@@ -119,7 +122,9 @@ offset_right = 86.0
 offset_bottom = 95.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.168, 0.230067, 0.7, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 19
 theme_override_fonts/font = ExtResource("6_oow5q")
 theme_override_font_sizes/font_size = 32
 text = "Score:"

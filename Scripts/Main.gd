@@ -36,19 +36,19 @@ func _input(event: InputEvent) -> void:
 		if event.is_action_pressed("switch_tracks"):
 			if paused:
 				reset()
-				tram_controller.update_tram = true
+				tram_controller.speed = tram_controller.start_speed
 				paused = false
 				hud.end_screen_hide()
 			else:
 				tram_controller.toggle_switch()
 	
 func end_screen(tram:Area2D)->void:
-	tram_controller.update_tram = false
+	tram_controller.speed = 0
 	paused = true
 	if level_num == 0:
-		hud.end_screen_show('Press space to start')
+		hud.end_screen_show('Space to Start')
 	else:
-		hud.end_screen_show('End of the line')
+		hud.end_screen_show('Destination Reached')
 
 func reset()->void:
 	tram_controller.speed = tram_controller.start_speed
@@ -124,6 +124,7 @@ func move_animals_to_tram()->void:
 		animals_to_move[i].movement_ended.connect(add_to_tram)
 
 func add_to_tram(animal:Area2D)->void:
+	$PickUp.play()
 	tram_controller.max_speed += animal.speed_modifier
 	score += animal.coin.value * (1 + morality_multiplier + speed_multiplier)
 	morality += animal.morality_on_save

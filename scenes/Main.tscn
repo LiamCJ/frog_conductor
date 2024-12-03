@@ -1,21 +1,26 @@
-[gd_scene load_steps=12 format=3 uid="uid://cs7o3vfaxi0oy"]
+[gd_scene load_steps=17 format=3 uid="uid://cs7o3vfaxi0oy"]
 
 [ext_resource type="Script" path="res://scripts/Main.gd" id="1_ofw73"]
-[ext_resource type="PackedScene" uid="uid://due07gb4ucpil" path="res://scenes/levels/level_2.tscn" id="2_4nupm"]
-[ext_resource type="PackedScene" uid="uid://bqsgmda24mled" path="res://scenes/levels/start.tscn" id="2_4wr8x"]
+[ext_resource type="PackedScene" uid="uid://bawdfmrkfk8k6" path="res://scenes/levels/level_2.tscn" id="2_4nupm"]
+[ext_resource type="PackedScene" uid="uid://djqnppatvoa66" path="res://scenes/levels/start.tscn" id="2_4wr8x"]
 [ext_resource type="Script" path="res://scripts/TramController.gd" id="2_ivblk"]
-[ext_resource type="PackedScene" uid="uid://d0yb3870nx7cc" path="res://scenes/levels/level_1.tscn" id="2_uh4ug"]
+[ext_resource type="PackedScene" uid="uid://cv5mlphdxwb8h" path="res://scenes/levels/level_1.tscn" id="2_uh4ug"]
 [ext_resource type="PackedScene" uid="uid://b0vx7g7jys4d3" path="res://scenes/characters/tram.tscn" id="3_2v853"]
 [ext_resource type="PackedScene" uid="uid://sihn7yioq3k2" path="res://scenes/characters/rabbit.tscn" id="3_ipnub"]
+[ext_resource type="PackedScene" uid="uid://t65th6f2ycal" path="res://scenes/levels/level_3.tscn" id="4_pp01j"]
 [ext_resource type="PackedScene" uid="uid://chop6itr1y3lb" path="res://scenes/characters/tortoise.tscn" id="4_q77nf"]
 [ext_resource type="PackedScene" uid="uid://lyc588ij5c30" path="res://scenes/environment_objects/coin.tscn" id="4_spmja"]
+[ext_resource type="PackedScene" uid="uid://bhd77kstxd525" path="res://scenes/levels/level_4.tscn" id="5_dp36n"]
 [ext_resource type="Script" path="res://scripts/Camera.gd" id="9_bs3oj"]
 [ext_resource type="PackedScene" uid="uid://gdwbp7w0ykhb" path="res://scenes/hud/hud.tscn" id="10_l7sdp"]
+[ext_resource type="AudioStream" uid="uid://crqiagi7wfeyb" path="res://assets/audio/tram_running.mp3" id="12_3it8c"]
+[ext_resource type="AudioStream" uid="uid://djl41kawai3qj" path="res://assets/audio/rail_switch.wav" id="13_g7bid"]
+[ext_resource type="AudioStream" uid="uid://bkg0d350xrsxp" path="res://assets/audio/acorn_crunch.mp3" id="13_glxmy"]
 
 [node name="Main" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_ofw73")
-levels = Array[PackedScene]([ExtResource("2_uh4ug"), ExtResource("2_4nupm")])
+levels = Array[PackedScene]([ExtResource("2_uh4ug"), ExtResource("2_4nupm"), ExtResource("4_pp01j"), ExtResource("5_dp36n")])
 start_level = ExtResource("2_4wr8x")
 animals = Array[PackedScene]([ExtResource("3_ipnub"), ExtResource("4_q77nf")])
 Coin = ExtResource("4_spmja")
@@ -34,6 +39,21 @@ zoom = Vector2(2.2, 2.2)
 script = ExtResource("9_bs3oj")
 
 [node name="HUD" parent="TramController/Tram" instance=ExtResource("10_l7sdp")]
+
+[node name="TramRunning" type="AudioStreamPlayer" parent="TramController"]
+stream = ExtResource("12_3it8c")
+volume_db = -10.0
+bus = &"sfx"
+
+[node name="SwitchTrack" type="AudioStreamPlayer" parent="TramController"]
+stream = ExtResource("13_g7bid")
+volume_db = -10.0
+bus = &"sfx"
+
+[node name="PickUp" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_glxmy")
+volume_db = -15.0
+bus = &"sfx"
 
 [connection signal="track_ended" from="TramController" to="." method="load_next_level"]
 [connection signal="area_entered" from="TramController/Tram" to="." method="on_animal_hit"]

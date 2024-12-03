@@ -8,6 +8,7 @@ signal movement_ended(animal:Area2D)
 @export var proffesion:int
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var coin: Node2D = $Coin
+@export var death_effects: Array[AudioStreamPlayer]
 
 var speed: int = 40
 var goal_pos: Vector2
@@ -23,7 +24,7 @@ func kill()->void:
 	animated_sprite.animation = 'dead'
 	animated_sprite.play()
 	coin.queue_free()
-	$AudioStreamPlayer.play()
+	death_effects.pick_random().play()
 
 func set_value(val:int)->void:
 	coin.value = val
